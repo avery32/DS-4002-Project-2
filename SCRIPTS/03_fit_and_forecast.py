@@ -3,7 +3,7 @@
 Purpose: Fit the selected model on 2000–2009 monthly data and forecast through Dec 2021.
 Input:   DATA/processed/MarriageRates_tidy.csv
          OUTPUT/best_model.json (optional) - if missing, falls back to SARIMA(1,1,1)x(1,1,1,12)
-Output:  OUTPUT/forecast_2010_2021.csv  (date, pred)
+Output:  OUTPUT/forecast_2010_2023.csv  (date, pred)
 Run:     python SCRIPTS/03_fit_and_forecast.py
 """
 
