@@ -5,7 +5,10 @@ This data comes from 5 vital national statistics reports created by the CDC.  Th
 **License:**  
 This data was found through CDC reports which fall under public domain. "All material appearing in these reports are in the public domain and may be
 reproduced or copied without permission; citation as to source, however,is appreciated." 
-**Data Dictionary:**  
+**Data Dictionary:**   
+![Data Dictionary image](DataDictionary.png)  
+**EDA Plots:**  
+
 
 
 
