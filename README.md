@@ -1,8 +1,8 @@
 # DS-4002-Project-2
 Project 2 - Time Series
 ## Section 1: Software and Platforms
-The softwares used in this project was google colab and the platforms used were Windows and Mac. 
-The add-on packages use are listed below here:
+The softwares used in this project was google colab and the platforms used were Windows and Mac. We utilized Python, specifically Pandas and NumPy. 
+### Required imports and libraries:
 
 ## Section 2: Map of Documentation
 In this section, you should provide an outline or tree illustrating the hierarchy of folders and subfolders contained in your Project Folder, and listing the files stored in each folder or subfolder.
