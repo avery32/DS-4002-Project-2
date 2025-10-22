@@ -5,6 +5,8 @@ This data comes from 5 vital national statistics reports created by the CDC.  Th
 **License:**  
 This data was found through CDC reports which fall under public domain. "All material appearing in these reports are in the public domain and may be
 reproduced or copied without permission; citation as to source, however,is appreciated."    
+**Ethical Statements:**  
+An uncertainty we want to acknowledge is the rounding of these numbers. All marriage numbers for a month are rounded to the nearest thousand, it was unclear to us how that was rounded, so we wanted to highlight that. The most important column we will be looking at is the marriage rate column. This gives a standardized indicator of marriage regardless of population, given that it provides the rate of marriages per 1000 in the population. One thing we must note, however, is that while this data was being collected, debates over same-sex marriage were happening throughout the US. While a couple of states were beginning to legalize same-sex marriage, most states did not at the time that this data was collected. As a result these numbers will not reflect a majority of same-sex couples.  
 **Data Dictionary:**   
 ![Data Dictionary image](DataDictionary.png)  
 **EDA Plots:**  
