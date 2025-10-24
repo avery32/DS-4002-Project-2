@@ -52,20 +52,50 @@ Project Folder
 ## Section 3: Reproducing Steps Instructions:
 
 In this section, you should give explicit step-by-step instructions to reproduce the Results of your study. These instructions should be written in straightforward plain English, but they must be concise, but detailed and precise enough, to make it possible for an interested user to reproduce your results without much difficulty. N.B. This section will be crucial for the CS1 assignment, where you'll be required to reproduce the results of other groups. Therefore, make sure to explain this section thoroughly.
-#### Assumptions 
+** Assumptions **
 - You are starting from the repository root
 - Python ≥ 3.9 is installed.
-#### Required data:
-- The CDC National Vital Statistics Reports of 'Births, Marriages, Divorces and Deaths: Provisional Data for' each year (2000-2009) saved as "MarriageRates.csv"
+- commands shown for macOS/Linux; on Windows PowerShell, replace `source .venv/bin/activate` with `. .venv/Scripts/Activate.ps1`.
+  ** Required data **:
+- Collected from the CDC National Vital Statistics Reports of 'Births, Marriages, Divorces and Deaths: Provisional Data for' each year (2000-2009)
+- Raw monthly data: `DATA/raw/MarriageRates.csv`
+- Processed monthly data (script output): `DATA/processed/MarriageRates_tidy.csv`
+- Actual annual data for evaluation: `DATA/2020sMarriageRates.csv`
 - contains columns: Year, Month, Number, and Rate Per 1000
 ### 3.1 Set up the Environment 
+```bash
+# (recommended) create & activate a virtual environment
+python -m venv .venv
+source .venv/bin/activate
 
-### 3.2 
+# install dependencies
+pip install -r requirements.txt
+```
+### 3.2 Preprocess the raw monthly data 
+Ingest the DATA/raw/MarriageRates.csv, normalizes columns (expects year, month, and a rate column like rate_per_1000), builds a monthly time series, and writes DATA/processed/MarriageRates_tidy.csv
+```bash
+python SCRIPTS/01_preprocess.py
+```
+### 3.3 Run Model selection (ARIMA/SARIMA) from 2000-2009
+This script slices training data to 2000–2009, searches small ARIMA/SARIMA grids, ranks by AIC, saves the leaderboard, and writes the best model spec to JSON
+``` bash
+python SCRIPTS/02_model.py
+```
+Produces
+OUTPUT/model_selection_results.csv
+OUTPUT/best_model.json (e.g., family, order, seasonal_order)
 
-### 3.3
+### 3.4 Fit best model & forecast 
+This loads the best spec refits on 2000–2009, and forecasts monthly through Dec-2023.
+``` bash
+python SCRIPTS/03_fit_and_forecast.py
+```
+Produces: OUTPUT/forecast_2010_2023.csv (columns: date, pred)
 
-### 3.4 
-
-### 3.5 
+### 3.5 Evaluate yearly forecasts vs actuals
+This aggregates the monthly predictions to annual means, aligns with DATA/2020sMarriageRates.csv, and computes summary metrics (MAPE, RMSE, R² when available).
+``` bash
+python SCRIPTS/04_evaluate_yearly.py
+```
 
 
