@@ -3,6 +3,20 @@ Project 2 - Time Series
 ## Section 1: Software and Platforms
 The softwares used in this project was google colab and the platforms used were Windows and Mac. We utilized Python, specifically Pandas and NumPy. 
 ### Required imports and libraries:
+```python
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+from pathlib import Path
+import warnings
+warnings.filterwarnings("ignore")
+
+from statsmodels.tsa.arima.model import ARIMA
+from statsmodels.tsa.statespace.sarimax import SARIMAX
+from statsmodels.graphics.tsaplots import plot_acf, plot_pacf
+from sklearn.metrics import mean_squared_error, r2_score
+```
 
 ## Section 2: Map of Documentation
 ```
